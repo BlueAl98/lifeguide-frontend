@@ -1,0 +1,69 @@
+// Design tokens: the only place where raw values (hex colors, sizes) live.
+// Components use the semantic names (var(--lg-color-error)), never hex codes.
+// Palette follows nayib.dev: dark background, neon green brand, glass surfaces.
+// Every text color below meets WCAG AA contrast (4.5:1) on --lg-color-bg.
+:root {
+  color-scheme: dark;
+
+  // Brand
+  --lg-color-primary: #00e676;
+  --lg-color-primary-hover: #33eb91;
+  --lg-color-primary-subtle: rgb(0 230 118 / 0.12);
+  --lg-color-on-primary: #000000;
+
+  // Status: main color (text, icons, borders) + subtle background for alerts/badges
+  --lg-color-success: #4ade80;
+  --lg-color-success-subtle: rgb(74 222 128 / 0.12);
+  --lg-color-error: #ff5c5c;
+  --lg-color-error-subtle: rgb(255 92 92 / 0.12);
+  --lg-color-warning: #fbbf24;
+  --lg-color-warning-subtle: rgb(251 191 36 / 0.12);
+  --lg-color-info: #60a5fa;
+  --lg-color-info-subtle: rgb(96 165 250 / 0.12);
+
+  // Neutrals
+  --lg-color-text: #ffffff;
+  --lg-color-text-muted: #a0a0a0;
+  --lg-color-bg: #121212;
+  --lg-color-surface: rgb(255 255 255 / 0.05); // glass card
+  --lg-color-border: rgb(255 255 255 / 0.1);
+  --lg-color-focus: #00e676;
+  --lg-surface-blur: blur(12px);
+
+  // Gradients
+  --lg-gradient-primary: linear-gradient(135deg, #00e676 0%, #00bfa5 100%);
+  --lg-gradient-glow: radial-gradient(circle, rgb(0 230 118 / 0.15) 0%, transparent 70%);
+  --lg-gradient-page:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(0 230 118 / 0.12), transparent),
+    var(--lg-color-bg);
+
+  // Typography
+  --lg-font-family: 'Inter', system-ui, sans-serif;
+  --lg-font-family-heading: 'Outfit', 'Inter', system-ui, sans-serif;
+  --lg-font-size-sm: 0.875rem;
+  --lg-font-size-md: 1rem;
+  --lg-font-size-lg: 1.25rem;
+  --lg-font-size-xl: 1.5rem;
+  --lg-font-size-2xl: 2rem;
+
+  // Spacing
+  --lg-space-1: 0.25rem;
+  --lg-space-2: 0.5rem;
+  --lg-space-3: 0.75rem;
+  --lg-space-4: 1rem;
+  --lg-space-6: 1.5rem;
+  --lg-space-8: 2rem;
+
+  // Shape and depth
+  --lg-radius-sm: 6px;
+  --lg-radius-md: 12px; // buttons
+  --lg-radius-lg: 16px; // cards
+  --lg-radius-full: 9999px;
+  --lg-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --lg-shadow-md: 0 8px 24px rgb(0 0 0 / 0.5);
+  --lg-shadow-glow: 0 8px 20px rgb(0 230 118 / 0.4);
+  --lg-transition: 0.3s ease;
+
+  // Layout
+  --lg-content-width: 72rem;
+}

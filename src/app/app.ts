@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Shell } from './core/layout/shell/shell';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [Shell],
   selector: 'lg-root',
-  styleUrl: './app.scss',
-  templateUrl: './app.html',
+  template: `<lg-shell />`,
 })
 export class App {}

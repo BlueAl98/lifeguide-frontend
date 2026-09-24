@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgb(18 18 18 / 0.7);
+  backdrop-filter: var(--lg-surface-blur);
+  border-bottom: 1px solid var(--lg-color-border);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lg-space-4);
+  max-width: var(--lg-content-width);
+  margin-inline: auto;
+  padding: var(--lg-space-3) var(--lg-space-4);
+}
+
+.brand {
+  font-family: var(--lg-font-family-heading);
+  font-size: var(--lg-font-size-lg);
+  font-weight: 800;
+  background: var(--lg-gradient-primary);
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: var(--lg-space-3);
+
+  a {
+    color: var(--lg-color-text);
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      color: var(--lg-color-primary);
+      text-decoration: underline;
+    }
+  }
+}

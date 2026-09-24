@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  padding: var(--lg-space-4);
+  border-top: 1px solid var(--lg-color-border);
+  color: var(--lg-color-text-muted);
+  font-size: var(--lg-font-size-sm);
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}

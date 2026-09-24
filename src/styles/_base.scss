@@ -1,0 +1,77 @@
+// Base element styles for the whole app. Only plain HTML elements here;
+// anything with a class belongs in a component (shared/ui).
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--lg-font-family);
+  font-size: var(--lg-font-size-md);
+  line-height: 1.5;
+  color: var(--lg-color-text);
+  background: var(--lg-gradient-page);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 var(--lg-space-4);
+  font-family: var(--lg-font-family-heading);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: var(--lg-font-size-2xl);
+}
+
+h2 {
+  font-size: var(--lg-font-size-xl);
+}
+
+h3 {
+  font-size: var(--lg-font-size-lg);
+}
+
+p {
+  margin: 0 0 var(--lg-space-4);
+}
+
+a {
+  color: var(--lg-color-primary);
+  transition: color var(--lg-transition);
+
+  &:hover {
+    color: var(--lg-color-primary-hover);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+// Visible focus ring for keyboard users only
+:focus-visible {
+  outline: 2px solid var(--lg-color-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
