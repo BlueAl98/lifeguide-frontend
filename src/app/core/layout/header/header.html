@@ -1,12 +1,53 @@
-<div class="header">
-  <a class="brand" routerLink="/">Lifeguide</a>
-  <nav aria-label="Principal">
-    <a
-      routerLink="/"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      ariaCurrentWhenActive="page"
-      >Inicio</a
-    >
-  </nav>
+<div class="bar">
+  <a class="brand" routerLink="/" aria-label="Lifeguide, inicio" (click)="closeMenu()">
+    <svg class="logo" viewBox="0 0 40 44" aria-hidden="true">
+      <defs>
+        <linearGradient id="lg-logo-gradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#33eb91" />
+          <stop offset="1" stop-color="#00bfa5" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#lg-logo-gradient)" d="M15 0h9L14 20h8L10 44l3-17H3z" />
+      <path fill="url(#lg-logo-gradient)" d="M27 22l11 16H17z" />
+    </svg>
+    <span class="name">Lifeguide</span>
+    <span class="tagline"><span class="slashes" aria-hidden="true">//</span> {{ tagline }}</span>
+  </a>
+
+  <button
+    type="button"
+    class="menu-toggle"
+    aria-controls="lg-main-nav"
+    [attr.aria-expanded]="menuOpen()"
+    [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+    (click)="toggleMenu()"
+  >
+    <span class="menu-icon" [class.open]="menuOpen()" aria-hidden="true"></span>
+  </button>
+
+  <div id="lg-main-nav" class="menu" [class.open]="menuOpen()">
+    <nav aria-label="Principal">
+      @for (link of links; track link.path) {
+        <a
+          class="nav-link"
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+          >{{ link.label }}</a
+        >
+      }
+    </nav>
+
+    <a class="login" routerLink="/login" (click)="closeMenu()">
+      <span class="login-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
+        </svg>
+      </span>
+      Iniciar sesión
+    </a>
+  </div>
 </div>

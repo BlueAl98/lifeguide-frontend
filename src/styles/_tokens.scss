@@ -34,12 +34,13 @@
   --lg-gradient-primary: linear-gradient(135deg, #00e676 0%, #00bfa5 100%);
   --lg-gradient-glow: radial-gradient(circle, rgb(0 230 118 / 0.15) 0%, transparent 70%);
   --lg-gradient-page:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(0 230 118 / 0.12), transparent),
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(0 230 118 / 0.22), transparent),
     var(--lg-color-bg);
 
   // Typography
   --lg-font-family: 'Inter', system-ui, sans-serif;
   --lg-font-family-heading: 'Outfit', 'Inter', system-ui, sans-serif;
+  --lg-font-family-brand: 'Poppins', 'Inter', system-ui, sans-serif; // logo + header nav
   --lg-font-size-sm: 0.875rem;
   --lg-font-size-md: 1rem;
   --lg-font-size-lg: 1.25rem;
@@ -58,6 +59,7 @@
   --lg-radius-sm: 6px;
   --lg-radius-md: 12px; // buttons
   --lg-radius-lg: 16px; // cards
+  --lg-radius-xl: 24px; // header bar
   --lg-radius-full: 9999px;
   --lg-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
   --lg-shadow-md: 0 8px 24px rgb(0 0 0 / 0.5);
