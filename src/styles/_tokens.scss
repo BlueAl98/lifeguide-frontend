@@ -37,15 +37,7 @@
     radial-gradient(ellipse 80% 50% at 50% -10%, rgb(0 230 118 / 0.22), transparent),
     var(--lg-color-bg);
 
-  // Typography
-  --lg-font-family: 'Inter', system-ui, sans-serif;
-  --lg-font-family-heading: 'Outfit', 'Inter', system-ui, sans-serif;
-  --lg-font-family-brand: 'Poppins', 'Inter', system-ui, sans-serif; // logo + header nav
-  --lg-font-size-sm: 0.875rem;
-  --lg-font-size-md: 1rem;
-  --lg-font-size-lg: 1.25rem;
-  --lg-font-size-xl: 1.5rem;
-  --lg-font-size-2xl: 2rem;
+  // Typography lives in _fonts.scss
 
   // Spacing
   --lg-space-1: 0.25rem;

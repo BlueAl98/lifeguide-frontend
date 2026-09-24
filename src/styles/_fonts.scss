@@ -1,0 +1,22 @@
+// Global font. To change the font for the whole app, edit ONLY this file:
+//   1. Pick a font on https://fonts.google.com and replace the @import URL below
+//      (keep the weights listed in the tokens: 400, 500, 600, 700 + italic 700).
+//   2. Replace 'Poppins' in --lg-font-family with the new font name.
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap');
+
+:root {
+  --lg-font-family: 'Poppins', system-ui, sans-serif;
+  // Headings use the same font by default; point this at another font to make them different.
+  --lg-font-family-heading: var(--lg-font-family);
+
+  --lg-font-weight-regular: 400;
+  --lg-font-weight-medium: 500;
+  --lg-font-weight-semibold: 600;
+  --lg-font-weight-bold: 700;
+
+  --lg-font-size-sm: 0.875rem;
+  --lg-font-size-md: 1rem;
+  --lg-font-size-lg: 1.25rem;
+  --lg-font-size-xl: 1.5rem;
+  --lg-font-size-2xl: 2rem;
+}

@@ -26,7 +26,6 @@
   display: flex;
   align-items: center;
   gap: var(--lg-space-3);
-  font-family: var(--lg-font-family-brand);
   color: var(--lg-color-text);
   text-decoration: none;
   white-space: nowrap;
@@ -41,7 +40,7 @@
 .name {
   font-size: var(--lg-font-size-xl);
   font-style: italic;
-  font-weight: 700;
+  font-weight: var(--lg-font-weight-bold);
   letter-spacing: -0.02em;
 }
 
@@ -71,7 +70,6 @@ nav {
 .nav-link {
   position: relative;
   padding: var(--lg-space-2) var(--lg-space-3);
-  font-family: var(--lg-font-family-brand);
   color: var(--lg-color-text-muted);
   text-decoration: none;
   transition: color var(--lg-transition);
@@ -95,7 +93,7 @@ nav {
   }
 
   &.active {
-    font-weight: 600;
+    font-weight: var(--lg-font-weight-semibold);
     color: var(--lg-color-text);
 
     &::after {
@@ -109,8 +107,7 @@ nav {
   align-items: center;
   gap: var(--lg-space-3);
   padding: var(--lg-space-1) var(--lg-space-6) var(--lg-space-1) var(--lg-space-1);
-  font-family: var(--lg-font-family-brand);
-  font-weight: 600;
+  font-weight: var(--lg-font-weight-semibold);
   color: var(--lg-color-text);
   text-decoration: none;
   white-space: nowrap;
