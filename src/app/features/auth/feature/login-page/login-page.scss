@@ -1,0 +1,53 @@
+// Hero photo: public/images/auth-hero.webp (+ .jpg fallback), 1536x1024, man on the left.
+:host {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 32rem);
+  align-items: center;
+  gap: var(--lg-space-8);
+  min-height: calc(100dvh - 10rem);
+  padding-block: var(--lg-space-8);
+}
+
+// Full-screen background behind the header and the page
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    // Light shade only behind the form so the man stays bright
+    linear-gradient(90deg, transparent 40%, rgb(8 12 13 / 0.55) 75%, rgb(8 12 13 / 0.8) 100%),
+    // Fade into the page at the bottom
+    linear-gradient(transparent 70%, rgb(8 12 13 / 0.85) 100%),
+    image-set(url('/images/auth-hero.webp') type('image/webp'), url('/images/auth-hero.jpg') type('image/jpeg'))
+      25% center / cover no-repeat,
+    #080c0d;
+}
+
+.hero {
+  align-self: end;
+  padding-bottom: 12vh;
+}
+
+@media (max-width: 60rem) {
+  :host {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  .hero {
+    align-self: auto;
+    padding-bottom: 0;
+    text-align: center;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 32rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .hero {
+    display: none;
+  }
+}

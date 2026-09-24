@@ -1,0 +1,200 @@
+:host {
+  display: block;
+  padding: var(--lg-space-8) clamp(var(--lg-space-6), 5vw, 3.5rem);
+  background: rgb(10 16 18 / 0.75);
+  backdrop-filter: var(--lg-surface-blur);
+  border: 1px solid rgb(0 230 118 / 0.25);
+  border-radius: var(--lg-radius-xl);
+  box-shadow: var(--lg-shadow-md);
+}
+
+h1 {
+  margin-bottom: var(--lg-space-2);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.subtitle {
+  margin-bottom: var(--lg-space-8);
+  color: var(--lg-color-text-muted);
+}
+
+// Fields
+.field {
+  margin-bottom: var(--lg-space-2);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--lg-space-2);
+  font-weight: var(--lg-font-weight-medium);
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: var(--lg-space-3);
+  padding-inline: var(--lg-space-4);
+  color: var(--lg-color-text-muted);
+  background: rgb(255 255 255 / 0.03);
+  border: 1px solid var(--lg-color-border);
+  border-radius: var(--lg-radius-md);
+  transition:
+    border-color var(--lg-transition),
+    box-shadow var(--lg-transition);
+
+  &:focus-within {
+    border-color: var(--lg-color-primary);
+    box-shadow: 0 0 0 3px var(--lg-color-primary-subtle);
+  }
+
+  &.invalid {
+    border-color: var(--lg-color-error);
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    padding-block: var(--lg-space-4);
+    color: var(--lg-color-text);
+    background: transparent;
+    border: 0;
+
+    &::placeholder {
+      color: var(--lg-color-text-muted);
+    }
+
+    &:focus-visible {
+      outline: none; // the .control ring shows focus instead
+    }
+  }
+}
+
+.reveal {
+  display: grid;
+  place-items: center;
+  padding: var(--lg-space-2);
+  color: var(--lg-color-text-muted);
+  background: none;
+  border: 0;
+  border-radius: var(--lg-radius-sm);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--lg-color-text);
+  }
+}
+
+.error {
+  min-height: 1.5rem;
+  margin: var(--lg-space-1) 0 0;
+  font-size: var(--lg-font-size-sm);
+  color: var(--lg-color-error);
+}
+
+// Remember me + forgot password
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lg-space-3);
+  margin-bottom: var(--lg-space-6);
+  font-size: var(--lg-font-size-sm);
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: var(--lg-space-2);
+  margin: 0;
+  font-weight: var(--lg-font-weight-regular);
+  cursor: pointer;
+
+  input {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0;
+    accent-color: var(--lg-color-primary);
+  }
+}
+
+.form-error {
+  padding: var(--lg-space-3) var(--lg-space-4);
+  font-size: var(--lg-font-size-sm);
+  color: var(--lg-color-error);
+  background: var(--lg-color-error-subtle);
+  border-radius: var(--lg-radius-md);
+}
+
+[lgButton] {
+  box-shadow: var(--lg-shadow-glow);
+  background: var(--lg-gradient-primary);
+}
+
+// Social login
+.separator {
+  display: flex;
+  align-items: center;
+  gap: var(--lg-space-4);
+  margin: var(--lg-space-8) 0 var(--lg-space-6);
+  font-size: var(--lg-font-size-sm);
+  color: var(--lg-color-text-muted);
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--lg-color-border);
+  }
+}
+
+.social {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--lg-space-3);
+  margin-bottom: var(--lg-space-8);
+}
+
+.social-button {
+  display: grid;
+  place-items: center;
+  padding-block: var(--lg-space-3);
+  color: var(--lg-color-text);
+  background: rgb(255 255 255 / 0.02);
+  border: 1px solid var(--lg-color-border);
+  border-radius: var(--lg-radius-md);
+  cursor: pointer;
+  transition:
+    border-color var(--lg-transition),
+    background var(--lg-transition);
+
+  lg-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &:hover {
+    background: var(--lg-color-surface);
+    border-color: rgb(0 230 118 / 0.4);
+  }
+}
+
+.signup {
+  margin: 0;
+  font-size: var(--lg-font-size-sm);
+  text-align: center;
+  color: var(--lg-color-text-muted);
+
+  a {
+    font-weight: var(--lg-font-weight-semibold);
+  }
+}

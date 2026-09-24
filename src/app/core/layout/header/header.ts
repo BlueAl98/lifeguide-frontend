@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Logo } from '../../../shared/ui/logo/logo';
 
 interface NavLink {
   readonly path: string;
@@ -7,7 +8,7 @@ interface NavLink {
 }
 
 @Component({
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, Logo],
   selector: 'lg-header',
   styleUrl: './header.scss',
   templateUrl: './header.html',

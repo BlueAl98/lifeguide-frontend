@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--lg-space-4);
+  margin: 0 0 var(--lg-space-8);
+}
+
+.logo {
+  width: 4.5rem;
+  height: 5rem;
+}
+
+.name {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-style: italic;
+  font-weight: var(--lg-font-weight-bold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.slogan {
+  margin: 0 0 var(--lg-space-6);
+  font-size: var(--lg-font-size-lg);
+  font-weight: var(--lg-font-weight-semibold);
+  letter-spacing: 0.35em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.divider {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  margin-bottom: var(--lg-space-6);
+  border-radius: var(--lg-radius-full);
+  background: var(--lg-color-primary);
+  box-shadow: 0 0 10px rgb(0 230 118 / 0.6);
+}
+
+.text {
+  margin: 0;
+  color: rgb(255 255 255 / 0.8);
+}

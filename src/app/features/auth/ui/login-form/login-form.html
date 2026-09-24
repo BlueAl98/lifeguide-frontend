@@ -1,0 +1,84 @@
+<h1>Bienvenido de nuevo</h1>
+<p class="subtitle">Inicia sesión para continuar tu camino.</p>
+
+<form novalidate (submit)="login($event)">
+  <div class="field">
+    <label for="login-email">Correo electrónico</label>
+    <div class="control" [class.invalid]="loginForm.email().touched() && loginForm.email().invalid()">
+      <lg-icon name="user" />
+      <input
+        id="login-email"
+        type="email"
+        autocomplete="email"
+        placeholder="tu@ejemplo.com"
+        aria-describedby="login-email-error"
+        [attr.aria-invalid]="loginForm.email().touched() && loginForm.email().invalid()"
+        [formField]="loginForm.email"
+      />
+    </div>
+    <p id="login-email-error" class="error">
+      @if (loginForm.email().touched()) {
+        {{ loginForm.email().errors()[0]?.message }}
+      }
+    </p>
+  </div>
+
+  <div class="field">
+    <label for="login-password">Contraseña</label>
+    <div class="control" [class.invalid]="loginForm.password().touched() && loginForm.password().invalid()">
+      <lg-icon name="lock" />
+      <input
+        id="login-password"
+        autocomplete="current-password"
+        placeholder="Ingresa tu contraseña"
+        aria-describedby="login-password-error"
+        [type]="showPassword() ? 'text' : 'password'"
+        [attr.aria-invalid]="loginForm.password().touched() && loginForm.password().invalid()"
+        [formField]="loginForm.password"
+      />
+      <button
+        type="button"
+        class="reveal"
+        [attr.aria-label]="showPassword() ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+        [attr.aria-pressed]="showPassword()"
+        (click)="togglePasswordVisibility()"
+      >
+        <lg-icon [name]="showPassword() ? 'eye-off' : 'eye'" />
+      </button>
+    </div>
+    <p id="login-password-error" class="error">
+      @if (loginForm.password().touched()) {
+        {{ loginForm.password().errors()[0]?.message }}
+      }
+    </p>
+  </div>
+
+  <div class="options">
+    <label class="remember">
+      <input type="checkbox" [formField]="loginForm.rememberMe" />
+      Recordarme
+    </label>
+    <a routerLink="/recuperar-contrasena">¿Olvidaste tu contraseña?</a>
+  </div>
+
+  @if (errorMessage(); as message) {
+    <p class="form-error" role="alert">{{ message }}</p>
+  }
+
+  <button lgButton type="submit" size="lg" [fullWidth]="true" [disabled]="pending()">
+    <lg-icon name="log-in" />
+    {{ pending() ? 'Entrando…' : 'Iniciar sesión' }}
+  </button>
+</form>
+
+<p class="separator"><span>O continúa con</span></p>
+
+<div class="social">
+  @for (provider of socialProviders; track provider.id) {
+    <button type="button" class="social-button" [attr.aria-label]="provider.label" (click)="socialLogin.emit(provider.id)">
+      <lg-icon [name]="provider.id" />
+    </button>
+  }
+</div>
+
+<p class="signup">¿No tienes una cuenta? <a routerLink="/registro">Regístrate</a></p>
