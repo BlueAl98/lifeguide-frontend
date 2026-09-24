@@ -1,0 +1,93 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lg-space-2);
+  padding: var(--lg-space-3) var(--lg-space-6);
+  font: inherit;
+  font-weight: var(--lg-font-weight-semibold);
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 2px solid transparent;
+  border-radius: var(--lg-radius-full);
+  cursor: pointer;
+  transition:
+    background var(--lg-transition),
+    box-shadow var(--lg-transition),
+    color var(--lg-transition),
+    transform var(--lg-transition);
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// Variants
+:host(.lg-button--primary) {
+  color: var(--lg-color-on-primary);
+  background: var(--lg-color-primary);
+
+  &:hover {
+    color: var(--lg-color-on-primary);
+    background: var(--lg-color-primary-hover);
+    box-shadow: var(--lg-shadow-glow);
+  }
+}
+
+:host(.lg-button--outline) {
+  color: var(--lg-color-text);
+  background: transparent;
+  border-color: var(--lg-color-primary);
+  box-shadow: 0 0 16px rgb(0 230 118 / 0.35);
+
+  &:hover {
+    color: var(--lg-color-text);
+    background: var(--lg-color-primary-subtle);
+    box-shadow: var(--lg-shadow-glow);
+  }
+}
+
+:host(.lg-button--ghost) {
+  color: var(--lg-color-text-muted);
+  background: transparent;
+
+  &:hover {
+    color: var(--lg-color-text);
+    background: var(--lg-color-surface);
+  }
+}
+
+:host(.lg-button--danger) {
+  color: var(--lg-color-error);
+  background: var(--lg-color-error-subtle);
+  border-color: var(--lg-color-error);
+
+  &:hover {
+    color: var(--lg-color-text);
+    background: var(--lg-color-error);
+  }
+}
+
+// Sizes
+:host(.lg-button--sm) {
+  padding: var(--lg-space-1) var(--lg-space-4);
+  font-size: var(--lg-font-size-sm);
+}
+
+:host(.lg-button--lg) {
+  padding: var(--lg-space-4) var(--lg-space-8);
+  font-size: var(--lg-font-size-lg);
+}
+
+:host(.lg-button--full) {
+  display: flex;
+  width: 100%;
+}
