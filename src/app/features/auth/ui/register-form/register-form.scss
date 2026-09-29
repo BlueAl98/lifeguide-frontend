@@ -1,0 +1,35 @@
+@use '../auth-card';
+
+h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+}
+
+.subtitle {
+  margin-bottom: var(--lg-space-6);
+}
+
+// First + last name side by side, stacked on narrow cards
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  column-gap: var(--lg-space-4);
+}
+
+.optional {
+  font-weight: var(--lg-font-weight-regular);
+  color: var(--lg-color-text-muted);
+}
+
+// Native date picker: match the text inputs
+input[type='date']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+form > [lgButton] {
+  margin-top: var(--lg-space-2);
+}
+
+.switch {
+  margin-top: var(--lg-space-6);
+}

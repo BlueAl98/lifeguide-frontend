@@ -6,6 +6,10 @@ export type IconName =
   | 'eye'
   | 'eye-off'
   | 'log-in'
+  | 'user-plus'
+  | 'at-sign'
+  | 'mail'
+  | 'calendar'
   | 'google'
   | 'apple'
   | 'github';

@@ -1,0 +1,169 @@
+<h1>Crea tu cuenta</h1>
+<p class="subtitle">Empieza hoy a construir mejores hábitos.</p>
+
+<form novalidate (submit)="register($event)">
+  <div class="row">
+    <div class="field">
+      <label for="register-first-name">Nombre</label>
+      <div class="control" [class.invalid]="registerForm.firstName().touched() && registerForm.firstName().invalid()">
+        <lg-icon name="user" />
+        <input
+          id="register-first-name"
+          autocomplete="given-name"
+          placeholder="Ana"
+          aria-describedby="register-first-name-error"
+          [attr.aria-invalid]="registerForm.firstName().touched() && registerForm.firstName().invalid()"
+          [formField]="registerForm.firstName"
+        />
+      </div>
+      <p id="register-first-name-error" class="error">
+        @if (registerForm.firstName().touched()) {
+          {{ registerForm.firstName().errors()[0]?.message }}
+        }
+      </p>
+    </div>
+    <div class="field">
+      <label for="register-last-name">Apellido</label>
+      <div class="control" [class.invalid]="registerForm.lastName().touched() && registerForm.lastName().invalid()">
+        <lg-icon name="user" />
+        <input
+          id="register-last-name"
+          autocomplete="family-name"
+          placeholder="López"
+          aria-describedby="register-last-name-error"
+          [attr.aria-invalid]="registerForm.lastName().touched() && registerForm.lastName().invalid()"
+          [formField]="registerForm.lastName"
+        />
+      </div>
+      <p id="register-last-name-error" class="error">
+        @if (registerForm.lastName().touched()) {
+          {{ registerForm.lastName().errors()[0]?.message }}
+        }
+      </p>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="register-username">Usuario</label>
+    <div class="control" [class.invalid]="registerForm.username().touched() && registerForm.username().invalid()">
+      <lg-icon name="at-sign" />
+      <input
+        id="register-username"
+        autocomplete="username"
+        placeholder="ana_fit"
+        aria-describedby="register-username-error"
+        [attr.aria-invalid]="registerForm.username().touched() && registerForm.username().invalid()"
+        [formField]="registerForm.username"
+      />
+    </div>
+    <p id="register-username-error" class="error">
+      @if (registerForm.username().touched()) {
+        {{ registerForm.username().errors()[0]?.message }}
+      }
+    </p>
+  </div>
+
+  <div class="field">
+    <label for="register-email">Correo electrónico</label>
+    <div class="control" [class.invalid]="registerForm.email().touched() && registerForm.email().invalid()">
+      <lg-icon name="mail" />
+      <input
+        id="register-email"
+        type="email"
+        autocomplete="email"
+        placeholder="tu@ejemplo.com"
+        aria-describedby="register-email-error"
+        [attr.aria-invalid]="registerForm.email().touched() && registerForm.email().invalid()"
+        [formField]="registerForm.email"
+      />
+    </div>
+    <p id="register-email-error" class="error">
+      @if (registerForm.email().touched()) {
+        {{ registerForm.email().errors()[0]?.message }}
+      }
+    </p>
+  </div>
+
+  <div class="field">
+    <label for="register-birth-date">Fecha de nacimiento <span class="optional">(opcional)</span></label>
+    <div class="control" [class.invalid]="registerForm.birthDate().touched() && registerForm.birthDate().invalid()">
+      <lg-icon name="calendar" />
+      <input
+        id="register-birth-date"
+        type="date"
+        autocomplete="bday"
+        [max]="maxBirthDate"
+        aria-describedby="register-birth-date-error"
+        [attr.aria-invalid]="registerForm.birthDate().touched() && registerForm.birthDate().invalid()"
+        [formField]="registerForm.birthDate"
+      />
+    </div>
+    <p id="register-birth-date-error" class="error">
+      @if (registerForm.birthDate().touched()) {
+        {{ registerForm.birthDate().errors()[0]?.message }}
+      }
+    </p>
+  </div>
+
+  <div class="field">
+    <label for="register-password">Contraseña</label>
+    <div class="control" [class.invalid]="registerForm.password().touched() && registerForm.password().invalid()">
+      <lg-icon name="lock" />
+      <input
+        id="register-password"
+        autocomplete="new-password"
+        placeholder="Mínimo 8 caracteres"
+        [type]="showPassword() ? 'text' : 'password'"
+        aria-describedby="register-password-error"
+        [attr.aria-invalid]="registerForm.password().touched() && registerForm.password().invalid()"
+        [formField]="registerForm.password"
+      />
+      <button
+        type="button"
+        class="reveal"
+        [attr.aria-label]="showPassword() ? 'Ocultar contraseñas' : 'Mostrar contraseñas'"
+        [attr.aria-pressed]="showPassword()"
+        (click)="togglePasswordVisibility()"
+      >
+        <lg-icon [name]="showPassword() ? 'eye-off' : 'eye'" />
+      </button>
+    </div>
+    <p id="register-password-error" class="error">
+      @if (registerForm.password().touched()) {
+        {{ registerForm.password().errors()[0]?.message }}
+      }
+    </p>
+  </div>
+
+  <div class="field">
+    <label for="register-confirm-password">Confirmar contraseña</label>
+    <div class="control" [class.invalid]="registerForm.confirmPassword().touched() && registerForm.confirmPassword().invalid()">
+      <lg-icon name="lock" />
+      <input
+        id="register-confirm-password"
+        autocomplete="new-password"
+        placeholder="Repite tu contraseña"
+        [type]="showPassword() ? 'text' : 'password'"
+        aria-describedby="register-confirm-password-error"
+        [attr.aria-invalid]="registerForm.confirmPassword().touched() && registerForm.confirmPassword().invalid()"
+        [formField]="registerForm.confirmPassword"
+      />
+    </div>
+    <p id="register-confirm-password-error" class="error">
+      @if (registerForm.confirmPassword().touched()) {
+        {{ registerForm.confirmPassword().errors()[0]?.message }}
+      }
+    </p>
+  </div>
+
+  @if (errorMessage(); as message) {
+    <p class="form-error" role="alert">{{ message }}</p>
+  }
+
+  <button lgButton type="submit" size="lg" [fullWidth]="true" [disabled]="pending()">
+    <lg-icon name="user-plus" />
+    {{ pending() ? 'Creando cuenta…' : 'Crear cuenta' }}
+  </button>
+</form>
+
+<p class="switch">¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión</a></p>

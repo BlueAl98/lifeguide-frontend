@@ -23,6 +23,11 @@
     #080c0d;
 }
 
+// The outlet itself is an empty marker; the routed card is its next sibling.
+router-outlet {
+  display: none;
+}
+
 .hero {
   align-self: end;
   padding-bottom: 12vh;
@@ -38,11 +43,6 @@
     align-self: auto;
     padding-bottom: 0;
     text-align: center;
-  }
-
-  .form {
-    width: 100%;
-    max-width: 32rem;
   }
 }
 
