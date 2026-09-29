@@ -47,9 +47,9 @@ describe('registerErrorMessage', () => {
     expect(registerErrorMessage(409, { message: 'Conflict' })).toBe('Esa cuenta ya existe.');
   });
 
-  it('handles validation, offline and unexpected errors', () => {
+  it('handles validation and leaves other errors to the global dialog', () => {
     expect(registerErrorMessage(400, null)).toBe('Revisa los datos del formulario.');
-    expect(registerErrorMessage(0, null)).toContain('No pudimos conectar');
-    expect(registerErrorMessage(500, null)).toContain('Algo salió mal');
+    expect(registerErrorMessage(0, null)).toBeNull();
+    expect(registerErrorMessage(500, null)).toBeNull();
   });
 });

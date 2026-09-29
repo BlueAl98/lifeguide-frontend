@@ -1,0 +1,57 @@
+:host {
+  display: contents;
+}
+
+dialog {
+  width: min(24rem, calc(100% - 2 * var(--lg-space-4)));
+  padding: var(--lg-space-8) var(--lg-space-6) var(--lg-space-6);
+  color: var(--lg-color-text);
+  text-align: center;
+  background: var(--lg-color-glass);
+  backdrop-filter: var(--lg-surface-blur);
+  border: 1px solid var(--lg-color-border);
+  border-radius: var(--lg-radius-xl);
+  box-shadow: var(--lg-shadow-md);
+
+  &::backdrop {
+    background: var(--lg-color-backdrop);
+    backdrop-filter: blur(4px);
+  }
+
+  &[open] {
+    animation: pop-in var(--lg-transition);
+  }
+}
+
+.badge {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--lg-space-4);
+  color: var(--lg-color-error);
+  background: var(--lg-color-error-subtle);
+  border-radius: var(--lg-radius-full);
+}
+
+h2 {
+  margin-bottom: var(--lg-space-2);
+}
+
+p {
+  margin: 0 0 var(--lg-space-6);
+  color: var(--lg-color-text-muted);
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog[open] {
+    animation: none;
+  }
+}

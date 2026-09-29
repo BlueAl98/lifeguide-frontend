@@ -10,6 +10,7 @@ export type IconName =
   | 'at-sign'
   | 'mail'
   | 'calendar'
+  | 'alert'
   | 'google'
   | 'apple'
   | 'github';

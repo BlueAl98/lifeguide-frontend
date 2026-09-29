@@ -1,0 +1,17 @@
+<!-- (close) fires for the button, Esc and a backdrop click, so the store always resets. -->
+<dialog
+  #dialog
+  closedby="any"
+  aria-labelledby="error-dialog-title"
+  aria-describedby="error-dialog-message"
+  (close)="errorStore.dismiss()"
+>
+  @if (errorStore.error(); as error) {
+    <span class="badge"><lg-icon name="alert" /></span>
+    <h2 id="error-dialog-title">{{ error.title }}</h2>
+    <p id="error-dialog-message">{{ error.message }}</p>
+    <form method="dialog">
+      <button lgButton type="submit" [fullWidth]="true" autofocus>Entendido</button>
+    </form>
+  }
+</dialog>

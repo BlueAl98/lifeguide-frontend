@@ -1,4 +1,6 @@
 // Mirrors the backend contract (api-contract.md). No Angular code in this folder.
+import { ErrorResponse } from '../../../shared/domain/app-error';
+
 export interface LoginRequest {
   email: string;
   password: string;
@@ -54,23 +56,19 @@ export function toRegisterRequest(value: RegisterFormValue): RegisterRequest {
   };
 }
 
-// Error envelope returned by the backend for every error (api-contract.md).
-export interface ErrorResponse {
-  code: string;
-  message: string;
-  status: number;
-  path: string;
-  timestamp: string;
-}
-
-/** Spanish message for a failed POST /api/register. `status` 0 = no connection. */
-export function registerErrorMessage(status: number, body: Partial<ErrorResponse> | null): string {
+/**
+ * Inline Spanish message for the errors the register form owns (400/409, see `AuthApi.register`).
+ * `null` for anything else: the global error dialog shows those.
+ */
+export function registerErrorMessage(
+  status: number,
+  body: Partial<ErrorResponse> | null,
+): string | null {
   if (status === 409) {
     if (body?.message === 'Email is already registered') return 'Este correo ya está registrado.';
     if (body?.message === 'Username is already taken') return 'Ese usuario ya está en uso.';
     return 'Esa cuenta ya existe.';
   }
   if (status === 400) return 'Revisa los datos del formulario.';
-  if (status === 0) return 'No pudimos conectar con el servidor. Inténtalo de nuevo.';
-  return 'Algo salió mal. Inténtalo de nuevo en unos minutos.';
+  return null;
 }

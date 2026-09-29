@@ -29,6 +29,8 @@
   --lg-color-border: rgb(255 255 255 / 0.1);
   --lg-color-focus: #00e676;
   --lg-surface-blur: blur(12px);
+  --lg-color-glass: rgb(10 16 18 / 0.85); // opaque glass for dialogs
+  --lg-color-backdrop: rgb(0 0 0 / 0.6); // page dimmer behind dialogs
 
   // Gradients
   --lg-gradient-primary: linear-gradient(135deg, #00e676 0%, #00bfa5 100%);
