@@ -159,6 +159,9 @@
   @if (errorMessage(); as message) {
     <p class="form-error" role="alert">{{ message }}</p>
   }
+  @if (successMessage(); as message) {
+    <p class="form-success" role="status">{{ message }}</p>
+  }
 
   <button lgButton type="submit" size="lg" [fullWidth]="true" [disabled]="pending()">
     <lg-icon name="user-plus" />

@@ -29,6 +29,7 @@ function today(): string {
 export class RegisterForm {
   readonly pending = input(false);
   readonly errorMessage = input<string | null>(null);
+  readonly successMessage = input<string | null>(null);
   readonly submitted = output<RegisterFormValue>();
 
   // Rules mirror RegisterRequest in the backend (api-contract.md).

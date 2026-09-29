@@ -94,12 +94,18 @@ label {
   color: var(--lg-color-error);
 }
 
-.form-error {
+.form-error,
+.form-success {
   padding: var(--lg-space-3) var(--lg-space-4);
   font-size: var(--lg-font-size-sm);
   color: var(--lg-color-error);
   background: var(--lg-color-error-subtle);
   border-radius: var(--lg-radius-md);
+}
+
+.form-success {
+  color: var(--lg-color-success);
+  background: var(--lg-color-success-subtle);
 }
 
 [lgButton] {
