@@ -20,9 +20,9 @@ describe('HomePage', () => {
 
     const chapters = [...el.querySelectorAll('lg-category-section')];
     expect(chapters.length).toBe(8);
-    expect(chapters[0].querySelector('h2')?.textContent?.trim()).toBe('Motivación');
-    expect(chapters[0].querySelector('.cta')?.getAttribute('href')).toBe('/motivacion');
-    expect(chapters[7].querySelector('h2')?.textContent?.trim()).toBe('Encuentra tu propósito');
+    expect(chapters[0].querySelector('h2')?.textContent?.trim()).toBe('Encuentra tu propósito');
+    expect(chapters[0].querySelector('.cta')?.getAttribute('href')).toBe('/proposito');
+    expect(chapters[7].querySelector('h2')?.textContent?.trim()).toBe('Valentía');
 
     expect(el.querySelector('#final-title')?.textContent).toBe('Tu mejor versión te espera.');
   });

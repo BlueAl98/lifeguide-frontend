@@ -22,6 +22,19 @@ export interface HomeCategory {
 export const HOME_CATEGORIES: readonly HomeCategory[] = [
   {
     number: '01',
+    title: 'Encuentra tu propósito',
+    intent: 'Quiero saber para qué estoy aquí.',
+    description:
+      'No se trata solamente de saber a dónde quieres llegar. Se trata de saber por qué.',
+    image: 'proposito',
+    imageAlt: 'Persona de espaldas contemplando un gran paisaje de montañas',
+    imageFocus: '50% 45%',
+    icon: 'target',
+    cta: 'Descubrir mi propósito',
+    link: '/proposito',
+  },
+  {
+    number: '02',
     title: 'Motivación',
     intent: 'Quiero empezar.',
     description: 'Encuentra la fuerza para seguir adelante, incluso cuando no tengas ganas.',
@@ -33,7 +46,7 @@ export const HOME_CATEGORIES: readonly HomeCategory[] = [
     link: '/motivacion',
   },
   {
-    number: '02',
+    number: '03',
     title: 'Fitness',
     intent: 'Quiero fortalecerme.',
     description: 'Entrena tu cuerpo, fortalece tu mente y alcanza tu máximo potencial.',
@@ -45,7 +58,7 @@ export const HOME_CATEGORIES: readonly HomeCategory[] = [
     link: '/entrenamientos',
   },
   {
-    number: '03',
+    number: '04',
     title: 'Meditación',
     intent: 'Quiero encontrar calma.',
     description: 'Aprende a controlar tu mente, vivir el presente y encontrar claridad.',
@@ -57,7 +70,7 @@ export const HOME_CATEGORIES: readonly HomeCategory[] = [
     link: '/meditacion',
   },
   {
-    number: '04',
+    number: '05',
     title: 'Automejora',
     intent: 'Quiero crecer.',
     description: 'Aprende, crece y conviértete cada día en una mejor versión de ti mismo.',
@@ -69,7 +82,7 @@ export const HOME_CATEGORIES: readonly HomeCategory[] = [
     link: '/automejora',
   },
   {
-    number: '05',
+    number: '06',
     title: 'Mentalidad',
     intent: 'Quiero pensar diferente.',
     description: 'Piensa diferente, supera tus límites y construye una mente más fuerte.',
@@ -81,7 +94,7 @@ export const HOME_CATEGORIES: readonly HomeCategory[] = [
     link: '/mentalidad',
   },
   {
-    number: '06',
+    number: '07',
     title: 'Persona positiva',
     intent: 'Quiero vivir mejor.',
     description: 'Elige la gratitud, la buena energía y rodéate de lo que suma.',
@@ -93,7 +106,7 @@ export const HOME_CATEGORIES: readonly HomeCategory[] = [
     link: '/persona-positiva',
   },
   {
-    number: '07',
+    number: '08',
     title: 'Valentía',
     intent: 'Quiero enfrentar mis miedos.',
     description: 'Enfrenta tus miedos, toma acción y haz que suceda.',
@@ -103,18 +116,5 @@ export const HOME_CATEGORIES: readonly HomeCategory[] = [
     icon: 'shield',
     cta: 'Ser más valiente',
     link: '/valentia',
-  },
-  {
-    number: '08',
-    title: 'Encuentra tu propósito',
-    intent: 'Quiero saber para qué estoy aquí.',
-    description:
-      'No se trata solamente de saber a dónde quieres llegar. Se trata de saber por qué.',
-    image: 'proposito',
-    imageAlt: 'Persona de espaldas contemplando un gran paisaje de montañas',
-    imageFocus: '50% 45%',
-    icon: 'target',
-    cta: 'Descubrir mi propósito',
-    link: '/proposito',
   },
 ];
