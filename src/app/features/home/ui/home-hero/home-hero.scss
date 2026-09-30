@@ -1,0 +1,214 @@
+:host {
+  display: block;
+  // Pull the hero up under the sticky header so the photo fills the whole screen.
+  margin-top: calc(-1 * var(--lg-header-offset));
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100dvh;
+  padding: var(--lg-header-offset) clamp(var(--lg-space-4), 6vw, var(--lg-space-24))
+    var(--lg-space-16);
+  overflow: hidden;
+  isolation: isolate;
+
+  // Cinematic grade: fade into the page on the left and bottom, soft green haze on the right
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse 45% 55% at 68% 38%, var(--lg-color-primary-subtle), transparent 70%),
+      linear-gradient(to top, var(--lg-color-bg) 2%, transparent 35%),
+      linear-gradient(
+        90deg,
+        var(--lg-color-bg) 28%,
+        color-mix(in srgb, var(--lg-color-bg) 55%, transparent) 48%,
+        transparent 75%
+      );
+  }
+}
+
+// Photo sits on the right; taller than the hero so the parallax never shows an edge.
+.bg {
+  position: absolute;
+  inset: -12% 0 -12% 32%;
+  z-index: -2;
+  transform: translateY(var(--parallax-offset, 0));
+  will-change: transform;
+
+  // Dark green colour grading
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--lg-color-primary);
+    mix-blend-mode: color;
+    opacity: 0.35;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+    filter: brightness(0.7) contrast(1.1);
+    animation: hero-zoom 2.4s var(--lg-ease-out) backwards;
+  }
+}
+
+.content {
+  max-width: 34rem;
+
+  > * {
+    animation: hero-rise 1s var(--lg-ease-out) backwards;
+  }
+}
+
+.kicker {
+  font-style: italic;
+  color: var(--lg-color-text-muted);
+}
+
+.slash {
+  margin-right: var(--lg-space-2);
+  color: var(--lg-color-primary);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--lg-space-4);
+  margin-bottom: var(--lg-space-6);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-style: italic;
+  font-weight: var(--lg-font-weight-extrabold);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.logo {
+  width: 0.8em;
+  height: 0.9em;
+}
+
+.slogan {
+  margin-bottom: var(--lg-space-6);
+  font-size: var(--lg-font-size-lg);
+  font-weight: var(--lg-font-weight-semibold);
+  letter-spacing: 0.35em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  animation-delay: 150ms;
+}
+
+.divider {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  margin-bottom: var(--lg-space-6);
+  border-radius: var(--lg-radius-full);
+  background: var(--lg-color-primary);
+  box-shadow: var(--lg-shadow-glow-soft);
+  animation-delay: 150ms;
+}
+
+.text {
+  margin-bottom: var(--lg-space-8);
+  max-width: 26rem;
+  color: var(--lg-color-text-muted);
+  animation-delay: 300ms;
+}
+
+.cta.lg-button {
+  animation-delay: 450ms;
+  box-shadow: var(--lg-shadow-glow-soft);
+
+  &:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.08);
+    box-shadow: var(--lg-shadow-glow);
+
+    .arrow {
+      transform: translateX(5px);
+    }
+  }
+}
+
+.arrow {
+  transition: transform var(--lg-transition);
+}
+
+// Hand-written accent, like a note on the gym wall
+.accent {
+  position: absolute;
+  right: clamp(var(--lg-space-4), 4vw, var(--lg-space-16));
+  top: 22%;
+  margin: 0;
+  font-family: var(--lg-font-family-accent);
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1.15;
+  color: var(--lg-color-primary);
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-10deg);
+  text-shadow: var(--lg-shadow-glow-soft);
+  animation: hero-fade 1.6s ease-out 900ms backwards;
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 64rem) {
+  .accent {
+    display: none;
+  }
+}
+
+@media (max-width: 48rem) {
+  .hero {
+    align-items: flex-end;
+
+    &::before {
+      background: linear-gradient(
+        to top,
+        var(--lg-color-bg) 20%,
+        color-mix(in srgb, var(--lg-color-bg) 60%, transparent) 55%,
+        transparent 85%
+      );
+    }
+  }
+
+  .bg {
+    inset: -12% 0;
+  }
+
+  .title {
+    font-size: clamp(3rem, 15vw, 6rem);
+  }
+
+  .slogan {
+    font-size: var(--lg-font-size-md);
+    letter-spacing: var(--lg-tracking-wide);
+  }
+}

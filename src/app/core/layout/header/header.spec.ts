@@ -36,4 +36,18 @@ describe('Header', () => {
     await fixture.whenStable();
     expect(toggle.getAttribute('aria-expanded')).toBe('false');
   });
+
+  it('turns compact once the page scrolls', async () => {
+    const fixture = TestBed.createComponent(Header);
+    await fixture.whenStable();
+    const host: HTMLElement = fixture.nativeElement;
+    expect(host.classList).not.toContain('scrolled');
+
+    Object.defineProperty(window, 'scrollY', { value: 200, configurable: true });
+    window.dispatchEvent(new Event('scroll'));
+    await fixture.whenStable();
+    expect(host.classList).toContain('scrolled');
+
+    Object.defineProperty(window, 'scrollY', { value: 0, configurable: true });
+  });
 });

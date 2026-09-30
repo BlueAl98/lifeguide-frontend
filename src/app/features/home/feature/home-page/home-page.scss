@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  overflow-x: clip;
+  // Solid page colour: hides the body's fixed green glow, which is meant for the auth screens.
+  background: var(--lg-color-bg);
+}
+
+.chapters {
+  max-width: var(--lg-wide-width);
+  margin-inline: auto;
+}

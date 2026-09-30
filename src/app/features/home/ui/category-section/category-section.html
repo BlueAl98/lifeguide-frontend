@@ -1,0 +1,39 @@
+@let c = category();
+<section class="chapter" [class.reversed]="reversed()" [attr.aria-labelledby]="headingId()">
+  <div class="media">
+    <picture>
+      <source
+        type="image/webp"
+        [attr.srcset]="image().webp"
+        sizes="(max-width: 48rem) 100vw, 50vw"
+      />
+      <img
+        [src]="image().src"
+        [attr.srcset]="image().jpg"
+        sizes="(max-width: 48rem) 100vw, 50vw"
+        [alt]="c.imageAlt"
+        [style.object-position]="c.imageFocus"
+        width="1200"
+        height="800"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+  </div>
+
+  <div class="content">
+    <span class="number" aria-hidden="true">{{ c.number }}</span>
+    <div class="body">
+      <p class="intent">{{ c.intent }}</p>
+      <h2 class="title" [id]="headingId()">
+        <lg-icon class="icon" [name]="c.icon" />
+        {{ c.title }}
+      </h2>
+      <p class="description">{{ c.description }}</p>
+      <a class="cta" [routerLink]="c.link">
+        <span class="cta-label">{{ c.cta }}</span>
+        <lg-icon class="arrow" name="arrow-right" />
+      </a>
+    </div>
+  </div>
+</section>

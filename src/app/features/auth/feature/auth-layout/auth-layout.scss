@@ -4,8 +4,11 @@
   grid-template-columns: 1fr minmax(0, 32rem);
   align-items: center;
   gap: var(--lg-space-8);
+  width: 100%;
+  max-width: var(--lg-content-width);
   min-height: calc(100dvh - 10rem);
-  padding-block: var(--lg-space-8);
+  margin-inline: auto;
+  padding: var(--lg-space-8) var(--lg-space-4);
 }
 
 // Full-screen background behind the header and the page
@@ -18,7 +21,10 @@
     linear-gradient(90deg, transparent 40%, rgb(8 12 13 / 0.55) 75%, rgb(8 12 13 / 0.8) 100%),
     // Fade into the page at the bottom
     linear-gradient(transparent 70%, rgb(8 12 13 / 0.85) 100%),
-    image-set(url('/images/auth-hero.webp') type('image/webp'), url('/images/auth-hero.jpg') type('image/jpeg'))
+    image-set(
+        url('/images/auth-hero.webp') type('image/webp'),
+        url('/images/auth-hero.jpg') type('image/jpeg')
+      )
       25% center / cover no-repeat,
     #080c0d;
 }

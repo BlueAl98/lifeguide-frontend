@@ -1,0 +1,35 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="bg" lgParallax="0.15">
+    <picture>
+      <source
+        type="image/webp"
+        srcset="/images/home/hero-960.webp 960w, /images/home/hero-1920.webp 1920w"
+        sizes="(max-width: 60rem) 100vw, 65vw"
+      />
+      <img
+        src="/images/home/hero-1920.jpg"
+        srcset="/images/home/hero-960.jpg 960w, /images/home/hero-1920.jpg 1920w"
+        sizes="(max-width: 60rem) 100vw, 65vw"
+        width="1920"
+        height="2880"
+        fetchpriority="high"
+        alt="Hombre de espaldas en un gimnasio oscuro"
+      />
+    </picture>
+  </div>
+
+  <div class="content">
+    <p class="kicker">
+      <span class="slash" aria-hidden="true">/</span> Tu guía hacia una vida mejor
+    </p>
+    <h1 id="hero-title" class="title"><lg-logo class="logo" /> Lifeguide</h1>
+    <p class="slogan">Mejores hábitos.<br />Un tú más fuerte.</p>
+    <span class="divider" aria-hidden="true"></span>
+    <p class="text">Tu guía hacia un cuerpo más sano, una mente más fuerte y una vida mejor.</p>
+    <a lgButton size="lg" class="cta" routerLink="/registro">
+      Comienza ahora <lg-icon class="arrow" name="arrow-right" />
+    </a>
+  </div>
+
+  <p class="accent" aria-hidden="true">Disciplina hoy,<br />resultados mañana</p>
+</section>

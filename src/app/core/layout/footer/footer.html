@@ -1,0 +1,23 @@
+<div class="inner">
+  <a class="brand" routerLink="/" aria-label="Lifeguide, inicio">
+    <lg-logo class="logo" />
+    <span class="name">Lifeguide</span>
+  </a>
+
+  <ul class="socials" aria-label="Redes sociales">
+    @for (social of socials; track social.label) {
+      <li>
+        <a [href]="social.url" target="_blank" rel="noopener" [attr.aria-label]="social.label">
+          <lg-icon [name]="social.icon" />
+        </a>
+      </li>
+    }
+  </ul>
+
+  <nav aria-label="Pie de página">
+    @for (link of links; track link.path) {
+      <a class="nav-link" [routerLink]="link.path">{{ link.label }}</a>
+    }
+  </nav>
+</div>
+<p class="copy">© {{ year }} Lifeguide</p>

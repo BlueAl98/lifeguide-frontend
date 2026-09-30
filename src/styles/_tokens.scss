@@ -23,14 +23,22 @@
 
   // Neutrals
   --lg-color-text: #ffffff;
-  --lg-color-text-muted: #a0a0a0;
-  --lg-color-bg: #121212;
+  --lg-color-text-muted: #a7b3af;
+  --lg-color-bg: #020807;
+  --lg-color-bg-elevated: #06100d; // alternate section background
+  --lg-color-bg-deep: #081612; // secondary dark (panels, footer)
   --lg-color-surface: rgb(255 255 255 / 0.05); // glass card
   --lg-color-border: rgb(255 255 255 / 0.1);
   --lg-color-focus: #00e676;
   --lg-surface-blur: blur(12px);
   --lg-color-glass: rgb(10 16 18 / 0.85); // opaque glass for dialogs
   --lg-color-backdrop: rgb(0 0 0 / 0.6); // page dimmer behind dialogs
+  --lg-color-header: rgb(3 12 10 / 0.75); // floating glass navbar
+  --lg-color-border-accent: rgb(0 230 118 / 0.16); // thin green lines between sections
+  --lg-color-border-accent-strong: rgb(0 230 118 / 0.3);
+  --lg-color-glow: rgb(0 230 118 / 0.25);
+  --lg-color-outline-number: rgb(0 230 118 / 0.4); // stroke of the big chapter numbers
+  --lg-surface-blur-strong: blur(24px);
 
   // Gradients
   --lg-gradient-primary: linear-gradient(135deg, #00e676 0%, #00bfa5 100%);
@@ -48,6 +56,9 @@
   --lg-space-4: 1rem;
   --lg-space-6: 1.5rem;
   --lg-space-8: 2rem;
+  --lg-space-12: 3rem;
+  --lg-space-16: 4rem;
+  --lg-space-24: 6rem;
 
   // Shape and depth
   --lg-radius-sm: 6px;
@@ -58,8 +69,16 @@
   --lg-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
   --lg-shadow-md: 0 8px 24px rgb(0 0 0 / 0.5);
   --lg-shadow-glow: 0 8px 20px rgb(0 230 118 / 0.4);
+  --lg-shadow-glow-soft: 0 0 24px rgb(0 230 118 / 0.25);
+  --lg-shadow-header: 0 12px 40px rgb(0 0 0 / 0.45);
+
+  // Motion
   --lg-transition: 0.3s ease;
+  --lg-ease-out: cubic-bezier(0.16, 1, 0.3, 1); // "expensive" long ease-out for reveals
+  --lg-duration-reveal: 0.9s;
 
   // Layout
   --lg-content-width: 72rem;
+  --lg-wide-width: 90rem; // full-bleed chapters on the home page
+  --lg-header-offset: 7rem; // sticky header height; full-screen heroes slide under it
 }
