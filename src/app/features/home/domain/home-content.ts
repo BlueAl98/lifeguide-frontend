@@ -1,10 +1,43 @@
+/**
+ * Shape of the home page copy. The text itself lives in `src/content/home.content.ts`;
+ * these types make the build fail if that file is missing a field or uses an unknown icon.
+ */
+
 /** Icons used by the home chapters (a subset of the shared IconName union). */
 export type HomeCategoryIcon =
   'zap' | 'dumbbell' | 'meditation' | 'trending-up' | 'brain' | 'smile' | 'shield' | 'target';
 
-/** One "chapter" of the home page story. */
+/** Text split into lines; each entry is rendered on its own line. */
+export type ContentLines = readonly string[];
+
+/** A call to action: button/link label and the route it opens. */
+export interface ContentLink {
+  readonly label: string;
+  /** Absolute app route, e.g. '/registro'. */
+  readonly link: string;
+}
+
+export interface HomeHeroContent {
+  readonly kicker: string;
+  readonly title: string;
+  readonly slogan: ContentLines;
+  readonly text: string;
+  readonly cta: ContentLink;
+  /** Large decorative phrase on the side (hidden from screen readers). */
+  readonly accent: ContentLines;
+  readonly imageAlt: string;
+}
+
+export interface StoryIntroContent {
+  readonly eyebrow: string;
+  readonly title: string;
+  /** Last words of the title, highlighted in green. */
+  readonly titleEmphasis: string;
+  readonly text: ContentLines;
+}
+
+/** One "chapter" of the home page story. Its number (01, 02…) comes from its position. */
 export interface HomeCategory {
-  readonly number: string;
   readonly title: string;
   /** The reader's inner voice for this chapter ("Quiero empezar."). */
   readonly intent: string;
@@ -15,106 +48,21 @@ export interface HomeCategory {
   /** CSS object-position that keeps the subject in frame when cropped. */
   readonly imageFocus: string;
   readonly icon: HomeCategoryIcon;
-  readonly cta: string;
-  readonly link: string;
+  readonly cta: ContentLink;
 }
 
-export const HOME_CATEGORIES: readonly HomeCategory[] = [
-  {
-    number: '01',
-    title: 'Encuentra tu propósito',
-    intent: 'Quiero saber para qué estoy aquí.',
-    description:
-      'No se trata solamente de saber a dónde quieres llegar. Se trata de saber por qué.',
-    image: 'proposito',
-    imageAlt: 'Persona de espaldas contemplando un gran paisaje de montañas',
-    imageFocus: '50% 45%',
-    icon: 'target',
-    cta: 'Descubrir mi propósito',
-    link: '/proposito',
-  },
-  {
-    number: '02',
-    title: 'Motivación',
-    intent: 'Quiero empezar.',
-    description: 'Encuentra la fuerza para seguir adelante, incluso cuando no tengas ganas.',
-    image: 'motivacion',
-    imageAlt: 'Silueta de una persona en la cima de una montaña al amanecer',
-    imageFocus: '30% 50%',
-    icon: 'zap',
-    cta: 'Explorar motivación',
-    link: '/motivacion',
-  },
-  {
-    number: '03',
-    title: 'Fitness',
-    intent: 'Quiero fortalecerme.',
-    description: 'Entrena tu cuerpo, fortalece tu mente y alcanza tu máximo potencial.',
-    image: 'fitness',
-    imageAlt: 'Hombre entrenando con una mancuerna en un gimnasio oscuro',
-    imageFocus: '55% 40%',
-    icon: 'dumbbell',
-    cta: 'Comenzar entrenamiento',
-    link: '/entrenamientos',
-  },
-  {
-    number: '04',
-    title: 'Meditación',
-    intent: 'Quiero encontrar calma.',
-    description: 'Aprende a controlar tu mente, vivir el presente y encontrar claridad.',
-    image: 'meditacion',
-    imageAlt: 'Persona meditando sobre el agua al amanecer',
-    imageFocus: '50% 55%',
-    icon: 'meditation',
-    cta: 'Explorar meditación',
-    link: '/meditacion',
-  },
-  {
-    number: '05',
-    title: 'Automejora',
-    intent: 'Quiero crecer.',
-    description: 'Aprende, crece y conviértete cada día en una mejor versión de ti mismo.',
-    image: 'automejora',
-    imageAlt: 'Hombre escribiendo en un diario a la luz de una vela',
-    imageFocus: '50% 30%',
-    icon: 'trending-up',
-    cta: 'Comenzar',
-    link: '/automejora',
-  },
-  {
-    number: '06',
-    title: 'Mentalidad',
-    intent: 'Quiero pensar diferente.',
-    description: 'Piensa diferente, supera tus límites y construye una mente más fuerte.',
-    image: 'mentalidad',
-    imageAlt: 'Hombre pensativo en penumbra',
-    imageFocus: '50% 10%',
-    icon: 'brain',
-    cta: 'Fortalecer mi mentalidad',
-    link: '/mentalidad',
-  },
-  {
-    number: '07',
-    title: 'Persona positiva',
-    intent: 'Quiero vivir mejor.',
-    description: 'Elige la gratitud, la buena energía y rodéate de lo que suma.',
-    image: 'positiva',
-    imageAlt: 'Persona con los brazos abiertos frente al atardecer en las montañas',
-    imageFocus: '50% 45%',
-    icon: 'smile',
-    cta: 'Descubrir',
-    link: '/persona-positiva',
-  },
-  {
-    number: '08',
-    title: 'Valentía',
-    intent: 'Quiero enfrentar mis miedos.',
-    description: 'Enfrenta tus miedos, toma acción y haz que suceda.',
-    image: 'valentia',
-    imageAlt: 'Escalador subiendo una pared de roca al atardecer',
-    imageFocus: '25% 50%',
-    icon: 'shield',
-    cta: 'Ser más valiente',
-    link: '/valentia',
-  },
-];
+export interface FinalCtaContent {
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly text: ContentLines;
+  readonly cta: ContentLink;
+  /** Large decorative phrase on the side (hidden from screen readers). */
+  readonly accent: ContentLines;
+}
+
+export interface HomeContent {
+  readonly hero: HomeHeroContent;
+  readonly intro: StoryIntroContent;
+  readonly chapters: readonly HomeCategory[];
+  readonly finalCta: FinalCtaContent;
+}

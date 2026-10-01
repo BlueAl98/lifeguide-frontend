@@ -1,11 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NAV_LINKS } from '../../../../content/nav.content';
 import { Logo } from '../../../shared/ui/logo/logo';
-
-interface NavLink {
-  readonly path: string;
-  readonly label: string;
-}
 
 /** Past this many pixels of scroll the bar gets compact, blurrier and gains a border glow. */
 const SCROLLED_AFTER = 24;
@@ -22,13 +18,7 @@ const SCROLLED_AFTER = 24;
   },
 })
 export class Header {
-  protected readonly links: readonly NavLink[] = [
-    { path: '/', label: 'Inicio' },
-    { path: '/entrenamientos', label: 'Entrenamientos' },
-    { path: '/nutricion', label: 'Nutrición' },
-    { path: '/motivacion', label: 'Motivación' },
-    { path: '/acerca-de', label: 'Acerca de' },
-  ];
+  protected readonly links = NAV_LINKS;
   protected readonly menuOpen = signal(false);
   protected readonly scrolled = signal(false);
 

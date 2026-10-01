@@ -2,7 +2,7 @@ import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Icon } from '../../../../shared/ui/icon/icon';
 import { ScrollReveal } from '../../../../shared/ui/scroll-reveal/scroll-reveal';
-import { HomeCategory } from '../../domain/home-category';
+import { HomeCategory } from '../../domain/home-content';
 
 /** One cinematic chapter: half photo, half story. The whole row links to the category. */
 @Component({
@@ -14,10 +14,13 @@ import { HomeCategory } from '../../domain/home-category';
 })
 export class CategorySection {
   readonly category = input.required<HomeCategory>();
+  /** 1-based position in the story; shown as "01", "02"… */
+  readonly position = input.required<number>();
   /** Photo on the right instead of the left (chapters alternate). */
   readonly reversed = input(false);
 
-  protected readonly headingId = computed(() => `chapter-${this.category().number}`);
+  protected readonly number = computed(() => String(this.position()).padStart(2, '0'));
+  protected readonly headingId = computed(() => `chapter-${this.number()}`);
   protected readonly image = computed(() => {
     const base = `/images/home/${this.category().image}`;
     return {

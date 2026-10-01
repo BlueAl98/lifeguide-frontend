@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HOME_CATEGORIES } from '../../domain/home-category';
+import { HOME_CONTENT } from '../../../../../content/home.content';
 import { CategorySection } from '../../ui/category-section/category-section';
 import { FinalCta } from '../../ui/final-cta/final-cta';
 import { HomeHero } from '../../ui/home-hero/home-hero';
@@ -11,16 +11,17 @@ import { StoryIntro } from '../../ui/story-intro/story-intro';
   selector: 'lg-home-page',
   styleUrl: './home-page.scss',
   template: `
-    <lg-home-hero />
-    <lg-story-intro />
+    <lg-home-hero [content]="content.hero" />
+    <lg-story-intro [content]="content.intro" />
     <div class="chapters">
-      @for (category of categories; track category.number; let odd = $odd) {
-        <lg-category-section [category]="category" [reversed]="odd" />
+      @for (category of content.chapters; track category.cta.link; let i = $index, odd = $odd) {
+        <lg-category-section [category]="category" [position]="i + 1" [reversed]="odd" />
       }
     </div>
-    <lg-final-cta />
+    <lg-final-cta [content]="content.finalCta" />
   `,
 })
 export class HomePage {
-  protected readonly categories = HOME_CATEGORIES;
+  /** All copy comes from src/content/home.content.ts. */
+  protected readonly content = HOME_CONTENT;
 }

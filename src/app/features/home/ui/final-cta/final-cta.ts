@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Button } from '../../../../shared/ui/button/button';
 import { Icon } from '../../../../shared/ui/icon/icon';
 import { Parallax } from '../../../../shared/ui/parallax/parallax';
 import { ScrollReveal } from '../../../../shared/ui/scroll-reveal/scroll-reveal';
+import { FinalCtaContent } from '../../domain/home-content';
 
 /** Closing scene of the home page ("Ahora empieza."). */
 @Component({
@@ -11,6 +12,7 @@ import { ScrollReveal } from '../../../../shared/ui/scroll-reveal/scroll-reveal'
   selector: 'lg-final-cta',
   styleUrl: './final-cta.scss',
   template: `
+    @let c = content();
     <section class="final" aria-labelledby="final-title">
       <div class="bg" lgParallax="0.1" aria-hidden="true">
         <picture>
@@ -39,17 +41,33 @@ import { ScrollReveal } from '../../../../shared/ui/scroll-reveal/scroll-reveal'
 
       <div class="content">
         <span class="divider" aria-hidden="true"></span>
-        <p class="eyebrow">Ahora empieza.</p>
-        <h2 id="final-title" class="title">Tu mejor versión te espera.</h2>
-        <p class="text">Empieza hoy.<br />Pequeños hábitos. Grandes cambios.</p>
-        <a lgButton size="lg" class="cta" routerLink="/registro">
-          Comienza ahora <lg-icon class="arrow" name="arrow-right" />
+        <p class="eyebrow">{{ c.eyebrow }}</p>
+        <h2 id="final-title" class="title">{{ c.title }}</h2>
+        <p class="text">
+          @for (line of c.text; track $index) {
+            @if (!$first) {
+              <br />
+            }
+            {{ line }}
+          }
+        </p>
+        <a lgButton size="lg" class="cta" [routerLink]="c.cta.link">
+          {{ c.cta.label }} <lg-icon class="arrow" name="arrow-right" />
         </a>
       </div>
 
-      <p class="accent" aria-hidden="true">El cambio<br />empieza en ti</p>
+      <p class="accent" aria-hidden="true">
+        @for (line of c.accent; track $index) {
+          @if (!$first) {
+            <br />
+          }
+          {{ line }}
+        }
+      </p>
     </section>
   `,
   hostDirectives: [ScrollReveal],
 })
-export class FinalCta {}
+export class FinalCta {
+  readonly content = input.required<FinalCtaContent>();
+}

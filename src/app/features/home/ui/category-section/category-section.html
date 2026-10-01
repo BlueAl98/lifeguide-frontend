@@ -22,7 +22,7 @@
   </div>
 
   <div class="content">
-    <span class="number" aria-hidden="true">{{ c.number }}</span>
+    <span class="number" aria-hidden="true">{{ number() }}</span>
     <div class="body">
       <p class="intent">{{ c.intent }}</p>
       <h2 class="title" [id]="headingId()">
@@ -30,8 +30,8 @@
         {{ c.title }}
       </h2>
       <p class="description">{{ c.description }}</p>
-      <a class="cta" [routerLink]="c.link">
-        <span class="cta-label">{{ c.cta }}</span>
+      <a class="cta" [routerLink]="c.cta.link">
+        <span class="cta-label">{{ c.cta.label }}</span>
         <lg-icon class="arrow" name="arrow-right" />
       </a>
     </div>

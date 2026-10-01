@@ -20,11 +20,15 @@ describe('HomePage', () => {
 
     const chapters = [...el.querySelectorAll('lg-category-section')];
     expect(chapters.length).toBe(8);
+    expect(chapters[0].querySelector('.number')?.textContent).toBe('01');
     expect(chapters[0].querySelector('h2')?.textContent?.trim()).toBe('Encuentra tu propósito');
     expect(chapters[0].querySelector('.cta')?.getAttribute('href')).toBe('/proposito');
+    expect(chapters[7].querySelector('.number')?.textContent).toBe('08');
     expect(chapters[7].querySelector('h2')?.textContent?.trim()).toBe('Valentía');
 
+    expect(el.querySelectorAll('.slogan br').length).toBe(1);
     expect(el.querySelector('#final-title')?.textContent).toBe('Tu mejor versión te espera.');
+    expect(el.querySelector('lg-final-cta .cta')?.getAttribute('href')).toBe('/registro');
   });
 
   it('alternates the photo side between chapters', async () => {
