@@ -17,7 +17,7 @@ describe('Header', () => {
 
     expect(el.querySelector('.name')?.textContent).toBe('Lifeguide');
     const labels = [...el.querySelectorAll('.nav-link')].map((a) => a.textContent?.trim());
-    expect(labels).toEqual(['Inicio', 'Entrenamientos', 'Nutrición', 'Motivación', 'Acerca de']);
+    expect(labels).toEqual(['Inicio']);
     expect(el.querySelector('.login')?.getAttribute('href')).toBe('/login');
   });
 

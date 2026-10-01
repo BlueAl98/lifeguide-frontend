@@ -6,10 +6,7 @@ import { NavLink, SocialLink } from '../app/core/layout/nav-link';
  */
 export const NAV_LINKS = [
   { path: '/', label: 'Inicio' },
-  { path: '/entrenamientos', label: 'Entrenamientos' },
-  { path: '/nutricion', label: 'Nutrición' },
-  { path: '/motivacion', label: 'Motivación' },
-  { path: '/acerca-de', label: 'Acerca de' },
+  // More tabs (Entrenamientos, Nutrición, …) get added here once their pages exist.
 ] as const satisfies readonly NavLink[];
 
 // TODO: point these at the real Lifeguide accounts once they exist.
